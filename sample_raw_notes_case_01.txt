@@ -1,0 +1,42 @@
+Customer issue:
+Nessus credentialed scan against Ubuntu VM was being prepared, but SSH connectivity from Windows to Ubuntu failed.
+
+Environment:
+- Windows host machine
+- VMware Workstation Pro
+- Ubuntu VM target
+- Nessus Essentials installed on Windows
+- Ubuntu IP: 192.168.138.130
+- Windows VMnet8 IP: 192.168.138.1
+- Network mode: NAT
+- SSH account: nessuslab
+- SSH port: 22
+
+Symptoms:
+- Ubuntu SSH service was active/running.
+- Ubuntu was listening on port 22.
+- Windows could ping Ubuntu successfully.
+- Windows Test-NetConnection to port 22 returned False.
+- SSH login from Windows failed before the firewall fix.
+
+Troubleshooting performed:
+- Verified Ubuntu IP address.
+- Verified Windows VMnet8 IP address.
+- Confirmed both systems were on the same NAT network.
+- Confirmed ping from Windows to Ubuntu worked.
+- Confirmed SSH service was active on Ubuntu.
+- Checked UFW firewall rules.
+- Found conflicting UFW rules with both deny and allow entries for port 22.
+- Removed the deny rules.
+- Confirmed only allow rules remained.
+- Re-tested port 22 from Windows.
+- SSH login worked after firewall cleanup.
+
+Root cause:
+Ubuntu UFW firewall had conflicting deny and allow rules for SSH/port 22.
+
+Resolution:
+Removed the UFW deny rules for port 22, confirmed SSH allow rules, retested from Windows, and confirmed SSH worked.
+
+Final result:
+Nessus credentialed scan completed successfully and showed Auth: Pass.
