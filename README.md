@@ -2,14 +2,19 @@
 
 ## Project Overview
 
-This project demonstrates an AI-assisted technical support workflow designed to convert raw cybersecurity troubleshooting notes into structured support documentation.
+This project demonstrates a beginner-friendly AI-assisted technical support documentation workflow.
 
-The workflow was tested using two lab scenarios from a home cybersecurity environment:
+The goal of this project is to take raw cybersecurity troubleshooting notes and organize them into a structured support case format that can be reviewed by a human analyst.
 
-1. Nessus SSH connectivity troubleshooting
-2. Nessus credentialed scan review and vulnerability triage
+This project is based on a real home-lab scenario involving Nessus credentialed scanning, SSH connectivity, Ubuntu firewall rules, and technical support-style documentation.
 
-The goal of this project is to show how AI can help technical support and cybersecurity teams create cleaner documentation, summarize issues, draft customer-facing responses, prepare internal notes, and build reusable knowledge-base articles.
+## Scenario
+
+During a Nessus credentialed scan lab, SSH connectivity from a Windows host to an Ubuntu VM initially failed.
+
+The Ubuntu VM was reachable by ping, and the SSH service was active and listening on port 22. However, Windows could not connect to port 22.
+
+After troubleshooting, the issue was traced to conflicting UFW firewall rules on Ubuntu. The firewall had both deny and allow rules for SSH/port 22. Removing the deny rules allowed SSH connectivity, and the Nessus credentialed scan completed successfully with authentication passing.
 
 ## Tools Used
 
@@ -19,75 +24,71 @@ The goal of this project is to show how AI can help technical support and cybers
 * VMware Workstation Pro
 * Ubuntu VM
 * Tenable Nessus Essentials
-* Markdown documentation
 * GitHub
+* Markdown documentation
 
 ## Project Files
 
-| File                           | Purpose                                                                      |
-| ------------------------------ | ---------------------------------------------------------------------------- |
-| `support_case_builder.py`      | Python script that creates a structured support case template from raw notes |
-| `prompt_template.txt`          | Reusable AI prompt for support documentation                                 |
-| `sample_raw_notes_case_01.txt` | Raw notes for the Nessus SSH troubleshooting case                            |
-| `sample_raw_notes_case_02.txt` | Raw notes for the Nessus credentialed scan review case                       |
-| `sample_output_case_01.md`     | AI-generated output for the SSH troubleshooting case                         |
-| `sample_output_case_02.md`     | AI-generated output for the scan review and triage case                      |
+| File                           | Purpose                                                                   |
+| ------------------------------ | ------------------------------------------------------------------------- |
+| `support_case_builder.py`      | Python script that creates a structured support case draft from raw notes |
+| `sample_raw_notes_case_01.txt` | Raw troubleshooting notes used as the input                               |
+| `generated_support_case.md`    | Example structured support case output                                    |
+| `README.md`                    | Project explanation and documentation                                     |
 
-## Use Case
+## Workflow
 
-Technical support notes are often messy, incomplete, or written during live troubleshooting. This project shows how raw notes can be transformed into a consistent support case format.
+The workflow follows this structure:
 
-The workflow generates:
+1. Collect raw technical troubleshooting notes.
+2. Save the notes in a text file.
+3. Use a Python script to organize the notes into a structured support case template.
+4. Review the generated output for accuracy.
+5. Use the final documentation as a support case, internal note, or knowledge-base draft.
 
-* Case title
+## Support Case Sections
+
+The generated support case includes:
+
 * Issue summary
 * Environment details
 * Symptoms
 * Troubleshooting performed
-* Root-cause analysis
+* Root cause
 * Resolution
-* Validation steps
+* Validation
 * Customer-facing response
 * Internal support notes
-* Knowledge-base article draft
-* Missing information checklist
-
-## Lab Scenario 1: Nessus SSH Connectivity Troubleshooting
-
-In the first test case, a Nessus credentialed scan setup required SSH access to an Ubuntu VM. The Ubuntu host was reachable by ping, and SSH was running on port 22, but Windows could not connect to port 22.
-
-After troubleshooting, the issue was traced to conflicting UFW firewall rules. The firewall had both deny and allow rules for SSH. Removing the deny rules allowed SSH connectivity, and the Nessus credentialed scan later completed successfully with authentication passing.
-
-## Lab Scenario 2: Nessus Credentialed Scan Review
-
-In the second test case, a completed Nessus credentialed scan was reviewed and summarized. The scan authenticated successfully against the Ubuntu VM and returned informational findings. The AI workflow helped organize the scan result into a triage summary, analyst notes, hardening guidance, and a knowledge-base draft.
-
-## Human Review
-
-This project uses AI to speed up documentation, but it does not replace analyst judgment.
-
-All AI-generated output should be reviewed for:
-
-* Accuracy
+* Knowledge-base draft
 * Missing information
-* Overstated risk
-* Unsupported assumptions
-* Correct remediation guidance
-* Clear separation between confirmed facts and assumptions
+* Human review reminder
 
 ## Skills Demonstrated
 
-* AI-assisted technical support documentation
+* Basic Python scripting
+* Reading and writing files with Python
 * Cybersecurity troubleshooting documentation
-* Nessus scan review and triage
-* Root-cause analysis
-* Knowledge-base article drafting
-* Python scripting basics
+* Nessus credentialed scan preparation
+* SSH connectivity troubleshooting
+* Ubuntu UFW firewall troubleshooting
+* Technical support case documentation
 * Markdown documentation
 * GitHub portfolio organization
-* Responsible human review of AI output
+* Responsible human review of AI-assisted output
+
+## Human Review Note
+
+This project uses automation to help organize support documentation, but it does not replace analyst judgment.
+
+All generated output should be reviewed for:
+
+* Accuracy
+* Missing information
+* Unsupported assumptions
+* Overstated risk
+* Correct remediation guidance
+* Clear separation between confirmed facts and assumptions
 
 ## Resume Summary
-Built and tested an AI-driven technical support workflow using ChatGPT and Python to convert raw cybersecurity troubleshooting and Nessus scan notes into structured support cases,
-root-cause summaries, customer-facing responses, internal support notes, and reusable knowledge-base drafts.
 
+Built a beginner-friendly AI-assisted support documentation workflow using Python and ChatGPT concepts to convert raw cybersecurity troubleshooting notes into a structured support case. The project was tested using a Nessus SSH connectivity issue involving Windows, VMware Workstation Pro, Ubuntu, UFW firewall rules, and credentialed scan validation.
