@@ -76,7 +76,7 @@ The generated support case includes:
 * GitHub portfolio organization
 * Responsible human review of AI-assisted output
 
-## Human Review Note
+## Review Note
 
 This project uses automation to help organize support documentation, but it does not replace analyst judgment.
 
