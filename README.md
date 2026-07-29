@@ -4,7 +4,7 @@
 
 This project demonstrates a beginner-friendly AI-assisted technical support documentation workflow.
 
-The goal of this project is to take raw cybersecurity troubleshooting notes and organize them into a structured support case format that can be reviewed by a human analyst.
+The goal of this project is to take raw cybersecurity troubleshooting notes and organize them into a structured support case format that can be reviewed by an analyst.
 
 This project is based on a real home-lab scenario involving Nessus credentialed scanning, SSH connectivity, Ubuntu firewall rules, and technical support-style documentation.
 
